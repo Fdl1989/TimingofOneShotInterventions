@@ -2,9 +2,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Feb 25 18:30:48 2020
-
-@author: ld288
+@author: Francesco Di Lauro
+@mail: F.Di-Lauro@sussex.ac.uk
+Copyright 2020 Francesco Di Lauro. All Rights Reserved.
+See LICENSE file for details
 """
 
 from scipy.integrate import  odeint
