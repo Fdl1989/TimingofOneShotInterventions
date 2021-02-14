@@ -19,6 +19,8 @@ from matplotlib import rc
 rc('text', usetex=True)
 '''
 This code produces contourplots for different variables.
+NOTE, this works using mixing_baseline.txt, which is now moved at the appendix.
+Please refer to the files matrix_generation and metapop_strats
 '''
 def setup_plot(X, Y, Z, xlabel, ylabel, label):
     numberoflines = 4
