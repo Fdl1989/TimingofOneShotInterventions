@@ -54,7 +54,7 @@ def figure0(gamma, beta, tauf, c, interventiontime, interventionduration, whichx
     
     '''
     
-    t = np.linspace(0,tauf,3000)
+    t = np.linspace(0,tauf,250)
 
     if whichx == 'c':
         variable1 = c
@@ -158,19 +158,22 @@ if __name__=="__main__":
     ''' file name is the seed of the random gen '''
    
     
-    file_name = int(sys.argv[1])
-    fixed_var = str(sys.argv[2])
+    #file_name = int(sys.argv[1])
+    #fixed_var = str(sys.argv[2])
     #R_0 matrix
-    betaij = np.loadtxt('mat_realizations/%d.txt'%file_name)   
+    #betaij = np.loadtxt('mat_realizations/%d.txt'%file_name)
+    file_name ="mixing_matrix"
+    fixed_var="c"
+    betaij = np.loadtxt('mixing_baseline.txt',delimiter=',')
     ngroups = len(betaij)
     gamma = [1.0]*ngroups
 
-    size = 100
+    size = 50
     '''
      strength of the intervention (i.e. during int, new R_0 = c*old R_0)
     '''
     c = [0.8]*ngroups
-    tauf = 100
+    tauf = 50
         
     '''
         the next three runs are done with a fixed value of c and varying the threshold and the duration
@@ -196,7 +199,7 @@ if __name__=="__main__":
                        't_glob':t_glob,
                        })
     
-        df.to_csv('contourplots/%d_c.csv'%file_name)
+        df.to_csv('contourplots/%s_c.csv'%file_name)
 
     elif fixed_var=='duration':  
         '''
@@ -222,7 +225,7 @@ if __name__=="__main__":
                        't_glob':t_glob,
                        })
     
-        df.to_csv('contourplots/%d_duration.csv'%file_name)        
+        df.to_csv('contourplots/%s_duration.csv'%file_name)        
 
     else:
         print("Sry cannot fix this var")
